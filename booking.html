@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2970DB;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            min-width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #2970DB;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border: 2px solid #2970DB;
+
+        }
+
+        button {
+            background-color: #2970DB;
+            color: #fff;
+            min-width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .popup {
+            position: absolute;
+            height: 100dvh;
+            width: 100%;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.696);
+            display: none;
+            place-items: center;
+            z-index: 2;
+        }
+
+        .reciept {
+            width: 60%;
+            min-width: 300px;
+            background-color: #2970dbdb;
+            height: 50%;
+            min-height: 200px;
+            border-radius: 20px;
+            color: white;
+            box-sizing: border-box;
+            padding: 0 4%;
+            position: relative;
+        }
+
+        .reciept>h2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: red;
+            top: 1rem;
+            right: 1rem;
+            transition: all 1s;
+        }
+
+        .close:hover {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="passengers">Number of Passengers:</label>
+        <select id="passengers" name="passengers" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <div class="popup">
+        <div class="reciept">
+            <h2 class="destination"> </h2>
+            <p class="name"></p>
+            <p class="flight-no"></p>
+            <p class="date"></p>
+            <p class="time"></p>
+            <p class="no-user"></p>
+            <h2 class='done'> Booking Successful</h2>
+            <a href="index.html"><span class="close">X</span></a>
+        </div>
+    </div>
+
+    <script>
+        const ele = document.querySelector('.popup')
+
+
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                passengers: document.getElementById('passengers').value,
+            };
+
+            const destination = document.querySelector('.destination')
+            const name = document.querySelector('.name')
+            const flight_no = document.querySelector('.flight-no')
+            const date = document.querySelector('.date')
+            const time = document.querySelector('.time')
+            const user = document.querySelector('.no-user')
+
+            destination.innerHTML = 'INDIA To ' + localStorage.getItem('location')
+            name.innerHTML = 'Name : ' + formData.name
+            flight_no.innerHTML = 'Boarding passId : ' + 'HFE' + (Math.random()) * 1000000
+            date.innerHTML = 'On Date : ' + formData.date
+            time.innerHTML = 'On Time : ' + formData.time
+            user.innerHTML = 'No.of Passengers : ' + formData.passengers
+
+            if (ele) {
+                ele.style.display = 'grid'
+            }
+        });
+    
+
+    </script>
+</body>
+
+</html>

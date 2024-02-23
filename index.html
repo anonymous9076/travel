@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>69-Airline</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    .navbar {
+      height: 5rem;
+      width: 100%;
+      padding: 0 2%;
+      color: white !important;
+      position: absolute;
+      z-index: 2;
+
+    }
+
+    .navbar-brand {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .navbar-nav {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end !important;
+      font-weight: 600;
+      color: white !important;
+
+    }
+
+    .navbar-nav>li {
+      width: 11%;
+      text-align: center;
+
+    }
+
+    .navbar-nav>li>a:hover {
+      font-weight: 700 !important;
+      color: white !important;
+      font-size: 1.2rem;
+      transition: all .5s;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: clamp(20px, 3vw, 32px) !important;
+      height: 100%;
+    }
+
+    .home {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 45% 7% 20%;
+      place-items: end center;
+      background: url(./images/img1.png);
+      color: white !important;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100dvh;
+      position: relative;
+    }
+
+    .text {
+      width: 100%;
+      font-size: clamp(3.4rem, 6vw, 10rem);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .text2 {
+      width: 100%;
+      text-align: center;
+      font-size: clamp(1.5rem, 3vw, 1.6rem);
+
+    }
+
+    .home-btn-cont {
+      width: 100%;
+      margin: 1% 0;
+      display: grid;
+
+      place-items: center;
+    }
+
+    .home-btn {
+      color: white;
+      background-color: rgb(30, 30, 248);
+      height: 3rem;
+      width: 10rem;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .remind {
+      height: 100dvh;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .remind-sec {
+      height: 80%;
+      width: 90%;
+      display: grid;
+      place-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .remind-text {
+      height: 70%;
+      width: 70%;
+
+    }
+
+    .remind-text>h2 {
+      width: 100%;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .remind-text>h1 {
+      height: 50%;
+      display: grid;
+      place-items: center start;
+      color: rgba(255, 0, 0, 0.736);
+    }
+
+    .remind-text>p {
+      width: 100%;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+
+    .remind-pts {
+      height: 70%;
+      width: 70%;
+      background-color: #2970DB;
+      color: white;
+    }
+
+    .remind-pts>ul {
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5rem;
+    }
+
+    .remind-pts>ul>li {
+      height: 25%;
+      font-size: clamp(12px, 2vw, 18px);
+
+    }
+
+    .contact {
+      height: 100vh;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+    }
+
+    .cont-img {
+      height: 100%;
+      width: 100%;
+      background: url(./images/img3.png);
+    }
+
+    .cont-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      background-color: #2970DB;
+      padding: 3rem;
+
+    }
+
+    .cont-form>h1 {
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .cont-form>p {
+      width: 80%;
+      box-sizing: border-box;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .review {
+      height: 100dvh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rev-sec {
+      height: 70%;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .rev-card{
+      height: 70%;
+      width: 25%;
+      padding: 4%;
+      color: white;
+      font-size: 1.2rem;
+      background-color:#2970DB;
+      position: relative;
+      transition: all 2s;
+    }
+    .rev-card>p{
+      position: absolute;
+      right: 10%;
+      bottom: 5%;
+    }
+    .rev-card:hover{
+      transform: translate(-5%, -5%);
+      box-shadow: 5px 5px 5px 2px grey;
+    }
+
+    @media Screen and (max-width:992px) {
+      .navbar-nav {
+        width: 100%;
+        padding: 0;
+        height: 50dvh;
+        align-items: flex-start;
+        background-color: rgba(255, 255, 255, 0.496) !important;
+        backdrop-filter: blur(5px);
+        position: absolute;
+        z-index: 2;
+        top: 5rem;
+        left: 0;
+      }
+
+      .navbar-nav>li {
+        width: 100%;
+        height: 20%;
+        font-size: larger;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">69-Airline</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="area.html">Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="Booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="Contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- first interface -->
+  <div class="home">
+    <div class="text">Soar for less</div>
+    <div class="text2">40% off regular seat prices</div>
+    <div class="home-btn-cont">
+      <a href="area.html">
+        <button class="home-btn" type="submit">Book now</button>
+      </a>
+    </div>
+  </div>
+  <!-- second interface -->
+  <div class="remind">
+    <div class="remind-sec">
+      <div class="remind-text">
+        <h2>Includes flights to all destinations*</h2>
+        <p> Purchase by May 31, 2021, <br>
+          Fly anytime until May 31, 2022!</p>
+        <h1>Grab Offer Now !</h1>
+      </div>
+      <div class="remind-pts">
+        <ul>
+
+          <li> Mobile Check-in</li>
+          <li>VIP Lounge Access</li>
+          <li>Premium In-flight Entertainment</li>
+          <li>Priority Upgrades</li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- section 3rd -->
+  <div class="contact">
+    <div class="cont-img"></div>
+    <div class="cont-form">
+      <h1>Don't miss out on future flight deals.</h1>
+      <p>
+        "Unlock unbeatable travel savings with 69Airline! Don't miss out on future flight deals that will take you to
+        new heights of adventure. Join now and soar into a world of exclusive discounts, ensuring you never pay full
+        price for your next journey."</p>
+    </div>
+  </div>
+
+  <!-- section 4  -->
+  <div class="review">
+    <h1>Straight from our passengers</h1>
+    <div class="rev-sec">
+      <div class="rev-card">"Fantastic experience booking with 69Airline! Seamless navigation, great prices, and
+        excellent customer service." <p>--Tushar kumar</p></div>
+      <div class="rev-card">"Impressed with the user-friendly interface of 69Airline. Quick and hassle-free booking
+        process, making travel planning a breeze." <p>--Anmol</p></div>
+      <div class="rev-card">"Best airline website out there! 69Airline offers a wide range of options, from budget to
+        luxury, making it my go-to for all my travel needs." <p>--Manager</p></div>
+    </div>
+  </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>

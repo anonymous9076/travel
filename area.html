@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .navbar {
+            height: 5rem;
+            width: 100%;
+            padding: 0 2%;
+            color: white !important;
+            position: absolute;
+            z-index: 2;
+
+        }
+
+        .navbar-brand {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar-nav {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end !important;
+            font-weight: 600;
+            color: white !important;
+
+        }
+
+        .navbar-nav>li {
+            width: 11%;
+            text-align: center;
+
+        }
+
+        .navbar-nav>li>a:hover {
+            font-weight: 700 !important;
+            color: white !important;
+            font-size: 1.2rem;
+            transition: all .5s;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: clamp(20px, 3vw, 32px) !important;
+            height: 100%;
+        }
+
+        .loc-sec {
+            height: 100vh;
+            width: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .loc-sec>h1 {
+            font-size: clamp(2rem, 7vw, 6rem);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .loc-sec>p {
+            font-size: clamp(1rem, 5vw, 3rem);
+        }
+
+        .loc-sec>span {
+            font-size: clamp(1rem, 5vw, 3rem);
+            color: white;
+            font-weight: 700;
+
+        }
+
+        .book-btn {
+            min-width: 8rem;
+            width: 15%;
+            height: 3rem;
+            background-color: #2970DB;
+            color: white;
+            border: none;
+            font-size: clamp(1rem, 5vw, 1.2rem);
+            position: absolute;
+            border-radius: 10px;
+            right: 10%;
+            bottom: 10%;
+            box-shadow: 5px 5px 5px 2px black;
+            transition: all .5s;
+        }
+
+        .book-btn:hover {
+            font-weight: 700;
+        }
+
+
+
+        @media Screen and (max-width:992px) {
+            .navbar-nav {
+                width: 100%;
+                padding: 0;
+                height: 50dvh;
+                align-items: flex-start;
+                background-color: rgba(255, 255, 255, 0.496) !important;
+                backdrop-filter: blur(5px);
+                position: absolute;
+                z-index: 2;
+                top: 5rem;
+                left: 0;
+            }
+
+            .navbar-nav>li {
+                width: 100%;
+                height: 20%;
+                font-size: larger;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">69-Airline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" style=" color:white" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style=" color:white" href="area.html">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style=" color:white" href="Booking.html">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style=" color:white" href="Contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="location">
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+<script type="module">
+    import location from './location.js'
+
+    const loc = document.querySelector('.location')
+
+    location.forEach((curr, index) => {
+        const loc_sec = document.createElement('div')
+        loc_sec.classList.add('loc-sec')
+        loc_sec.style.background = `url(./images/${curr.image}) fixed`;
+        loc_sec.style.backgroundSize = 'cover';
+        loc_sec.style.backgroundRepeat = 'no-repeat';
+
+        const h1 = document.createElement('h1')
+        h1.innerHTML = curr.location
+
+        const p = document.createElement('p')
+        p.innerHTML = curr.slogan
+
+        const span = document.createElement('span')
+        span.innerHTML = curr.flightPrice + ' /-'
+
+        const h6 = document.createElement('h6')
+        h6.innerHTML = '*Per Person Flight Ticket Worth'
+
+        const anchor = document.createElement('a')
+        anchor.classList.add('btn-link')
+
+        const btn = document.createElement('button')
+        btn.innerHTML = 'Book Now'
+        btn.classList.add('book-btn')
+        btn.addEventListener('click',function(){
+            localStorage.clear()
+                localStorage.setItem('location',curr.location)
+                localStorage.setItem('price',curr.flightPrice)
+            anchor.setAttribute('href','booking.html')
+        })
+
+        loc.appendChild(loc_sec)
+        loc_sec.appendChild(h1)
+        loc_sec.appendChild(p)
+        loc_sec.appendChild(span)
+        loc_sec.appendChild(h6)
+        loc_sec.appendChild(anchor)
+        anchor.appendChild(btn)
+    })
+
+</script>
+
+</html>

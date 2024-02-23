@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      height: 5rem;
+      width: 100%;
+      padding: 0 2%;
+      color: white !important;
+      background-color: #2970DB;
+
+    }
+
+    .navbar-brand {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .navbar-nav {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end !important;
+      font-weight: 600;
+      color: white !important;
+
+    }
+
+    .navbar-nav>li {
+      width: 11%;
+      text-align: center;
+
+    }
+
+    .navbar-nav>li>a:hover {
+      font-weight: 700 !important;
+      color: white !important;
+      font-size: 1.2rem;
+      transition: all .5s;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: clamp(20px, 3vw, 32px) !important;
+      height: 100%;
+    }
+
+
+
+    @media Screen and (max-width:992px) {
+      .navbar-nav {
+        width: 100%;
+        padding: 0;
+        height: 50dvh;
+        align-items: flex-start;
+        background-color: rgba(255, 255, 255, 0.496) !important;
+        backdrop-filter: blur(5px);
+        position: absolute;
+        z-index: 2;
+        top: 5rem;
+        left: 0;
+      }
+
+      .navbar-nav>li {
+        width: 100%;
+        height: 20%;
+        font-size: larger;
+      }
+
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .input-group input[type="text"],
+    .input-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #2970DB;
+      border-radius: 5px;
+    }
+
+    .input-group textarea {
+      height: 100px;
+    }
+
+    .input-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #2970DB;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .input-group button:hover {
+      background-color: #2970DB;
+    }
+
+    .success-message {
+      color: #009933;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">69-Airline</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="area.html">Location</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="Booking.html">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color:white" href="Contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contact-form" method="post" action="https://formsubmit.co/">
+      <div class="input-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Your Email</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="input-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="input-group">
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+    <div class="success-message" id="success-message" style="display: none;">Your message has been sent
+      successfully!</div>
+  </div>
+
+</body>
+
+</html>
